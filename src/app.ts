@@ -1,8 +1,9 @@
 import { ReferenceItem, UL, RefBook, Shelf } from './classes';
-import { createCustomer, getBookTitlesByCategory, printRefBook, getAllBooks, purge, getProperty, getObjectProperty } from './functions';
+import { createCustomer, getBookTitlesByCategory, printRefBook, getAllBooks, purge, getProperty, getObjectProperty, printBook } from './functions';
 import { Book, Librarian, Logger, Magazine, ShelfItem } from './interfaces';
 import { Library } from './classes/library';
 import { Category } from './enums';
+import { BookRequiredFields, CreateCustomerFunctionType, UpdatedBook} from './types';
 
 // showHello('greeting', 'TypeScript');
 
@@ -183,4 +184,24 @@ const magazines: Magazine[] = [
 
 // magazineShelf.printTitiles();
 // console.log(magazineShelf.find('Five Points'));
-console.log(getObjectProperty(magazines[0], 'publisher'));
+// console.log(getObjectProperty(magazines[0], 'publisher'));
+
+// Task 07.04
+
+// const bookRequiredFields: BookRequiredFields = {
+//     id: 1,
+//     title: '',
+//     author: 'Anna',
+//     available: false,
+//     category: Category.Angular,
+//     pages: 0,
+//     markDamaged: (reason => {
+//         console.log(reason);
+//     })
+// };
+
+// const updatedBook: UpdatedBook = {};
+
+let params: Parameters<CreateCustomerFunctionType>;
+params = ['Anna', 32, 'Kyiv'];
+createCustomer(...params);
