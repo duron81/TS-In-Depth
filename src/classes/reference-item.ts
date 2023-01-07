@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import * as Interfaces from './../interfaces';
+import { timeout } from './decorators';
 
 
 abstract class ReferenceItem {
@@ -37,6 +38,7 @@ abstract class ReferenceItem {
         console.log('Creating a new ReferenceItem ...');
     }
 
+    @timeout(5000)
     printItem(): void {
         console.log(`${this.title} was published in ${this.year}`);
         console.log(Object.getPrototypeOf(this).constructor.department);

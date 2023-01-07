@@ -1,9 +1,11 @@
 import { ReferenceItem, UL, RefBook, Shelf } from './classes';
-import { createCustomer, getBookTitlesByCategory, printRefBook, getAllBooks, purge, getProperty, getObjectProperty, printBook } from './functions';
+import { createCustomer, getBookTitlesByCategory, printRefBook, getAllBooks, purge, getProperty, getObjectProperty, printBook, getBooksByCategory, logCategorySearch, getBooksByCategoryPromise, logSearchResults } from './functions';
 import { Book, Librarian, Logger, Magazine, ShelfItem } from './interfaces';
 import { Library } from './classes/library';
 import { Category } from './enums';
 import { BookRequiredFields, CreateCustomerFunctionType, UpdatedBook} from './types';
+import { UniversityLibrarian } from './classes/university-librarian';
+import Encyclopedia from './classes/encyclopedia';
 
 // showHello('greeting', 'TypeScript');
 
@@ -202,6 +204,76 @@ const magazines: Magazine[] = [
 
 // const updatedBook: UpdatedBook = {};
 
-let params: Parameters<CreateCustomerFunctionType>;
-params = ['Anna', 32, 'Kyiv'];
-createCustomer(...params);
+// let params: Parameters<CreateCustomerFunctionType>;
+// params = ['Anna', 32, 'Kyiv'];
+// createCustomer(...params);
+
+// Task 07.05
+
+// Task 08.01
+// const universityLib = new UL.UniversityLibrarian();
+// console.log(universityLib);
+// universityLib['a'] = 1;
+// UniversityLibrarian['a'] = 2;
+
+// Task 08.02
+// const fLibrarian = new UL.UniversityLibrarian();
+// console.log(fLibrarian);
+// fLibrarian.name = 'Anna';
+// fLibrarian.printLibrarian();
+// fLibrarian['printLibrarian']();
+
+// Task 08.03
+// const fLibrarian = new UL.UniversityLibrarian();
+// fLibrarian.assistFaculty = null;
+// console.log(fLibrarian);
+// fLibrarian.teachCommunity = function() {
+//     console.log(name);
+// };
+
+// task 08.04
+// const enc = new Encyclopedia(5,1,'some title',1988);
+// enc.printItem();
+
+// Task 08.05
+// const fLibrarian = new UL.UniversityLibrarian();
+// fLibrarian.name = 'Anna';
+// fLibrarian.assistCustomer('Iva', 'Some book');
+// console.log(fLibrarian);
+
+// Task 08.06
+// const fLibrarian = new UL.UniversityLibrarian();
+// fLibrarian.name = 'Anna';
+// console.log(fLibrarian.name);
+// console.log(fLibrarian);
+
+// Task 08.07
+// const enc = new Encyclopedia(5,1,'some title',1988);
+// enc.copies = 5;
+
+// Task 09.01
+// console.log('Begin');
+// getBooksByCategory(Category.JavaScript, logCategorySearch);
+// getBooksByCategory(Category.Software, logCategorySearch);
+// console.log('End');
+
+// Task 09.02
+// console.log('Begin');
+// getBooksByCategoryPromise(Category.JavaScript)
+//     .then(titles => {
+//         console.log(titles);
+//         return Promise.resolve(titles.length);
+//     })
+//     .then(result => console.log(result))
+//     .catch(reason => console.log(reason));
+
+// getBooksByCategoryPromise(Category.Software)
+//     .then(titles => console.log(titles))
+//     .catch(reason => console.log(reason));
+// console.log('End');
+
+// Task 09.03
+console.log('Begin');
+logSearchResults(Category.JavaScript);
+logSearchResults(Category.Software).catch(e => console.log(e));
+console.log('End');
